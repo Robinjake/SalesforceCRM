@@ -16,4 +16,6 @@ public class Logger {
         sale.setRating(sale.getCustomer().rateTransaction());
         sale.getEmployee().updateEmployeeSales(sale);
     }
+
+    // test
 }
