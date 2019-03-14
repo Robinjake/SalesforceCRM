@@ -1,3 +1,7 @@
+/**
+ * Kyle Truong
+ */
+
 package main.java.logger;
 
 import java.util.HashMap;
@@ -10,10 +14,14 @@ public class Logger {
         allSales = new HashMap<>();
     }
 
-    public offerSale(Sale sale) {
-        allSales.put(sale.getSaleID(), sale);
+    public void offerSale(Sale sale) {
+        allSales.put(sale.getId(), sale);
         sale.setSaleDecision(sale.getCustomer().acceptSale());
         sale.setRating(sale.getCustomer().rateTransaction());
-        sale.getEmployee().updateEmployeeSales(sale);
+        sale.getEmployee().addToSaleHistory(sale);
+    }
+
+    public boolean checkIfSaleIDExists(int id) {
+        return allSales.containsKey(id);
     }
 }
