@@ -3,14 +3,19 @@ import java.util.Scanner;
 
 
 public class Customer {
+    //Customer id
+    int id;
 
-    int ID; //Customer ID
+    public Customer(int id) {
+        this.id = id;
+    }
 
     public static boolean acceptSale() {
         Scanner reader = new Scanner(System.in);
-        System.out.println("Would you like to accept the sale?");
+        System.out.println("***CUSTOMER POV***");
+        System.out.print("Would you like to accept the sale (y or n): ");
         String choice = reader.next();
-        if(choice.equals("yes"))
+        if(choice.equals("y"))
             return true;
         else
             return false;
@@ -18,9 +23,10 @@ public class Customer {
 
     public static boolean rateTransaction(){
         Scanner reader = new Scanner(System.in);
-        System.out.println("Please rate your transaction experience");
+        System.out.println("***CUSTOMER POV***");
+        System.out.print("Was your transaction experience positive (y or n): ");
         String choice = reader.next();
-        if(choice.equals("good"))
+        if(choice.equals("y"))
             return true;
         else
             return false;

@@ -11,29 +11,60 @@
 package main.java.logger;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.List;
-
+import java.util.Random;
 
 
 public class Employee {
-    int ID;
-    HashMap<Integer, Sale> empSales = new HashMap<>();
-    Sale newSale;
+    // Member fields
+    int id;
+    public Map<Integer, Sale> saleHistory;
+    Map<Integer, Customer> customers;
+    Sale sale;
     Logger log;
+    final int MAX_ID_VALUE = 10000;
+
+    // Constructor
     public Employee(int _id) {
-        ID = _id;
+        id = _id;
         log = new Logger();
-    }
-    public void createSale() {
-        newSale = new Sale();
-
-    }
-    public void offerSale(Sale _newSale) {
-        log.offerSale(_newSale);
+        saleHistory = new HashMap<>();
+        customers = new HashMap<>();
     }
 
-    public void getTranRating() {
-         empSales.forEach((k,v) -> System.out.println("key: "+k+" value:"+ v.getRatingField));
+    public Customer getCustomerAccount(int customer_id) {
+        return customers.get(customer_id);
+    }
+
+    public Customer newCustomerAccount(int customer_id) {
+        Customer newCustomer = new Customer(customer_id);
+        customers.put(customer_id, newCustomer);
+        return newCustomer;
+    }
+
+    // Creates a new sale object with a unique id and offer to the customer
+    public void createSale(String product, Customer customer) {
+        Random rand = new Random();
+        int n = rand.nextInt(MAX_ID_VALUE);
+
+        while (log.checkIfSaleIDExists(n)) {
+            n = rand.nextInt(MAX_ID_VALUE);
+        }
+        sale = new Sale(n, product, Employee.this, customer);
+        sale.setEmployee(this);
+
+        log.offerSale(sale);
+    }
+
+    // Prints all of the ratings this employee has
+    public void checkSaleHistory() {
+        saleHistory.forEach((k,v) -> System.out.println("sale id: " + k + " | customer id: " +
+                saleHistory.get(k).getCustomer().id + " | rating: " + v.getRating()));
+
+    }
+
+    // Adds a sale to the employee's history of sales
+    public void addToSaleHistory(Sale sale) {
+        saleHistory.put(sale.getId(), sale);
     }
 
 
