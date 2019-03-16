@@ -19,8 +19,8 @@ public class EmployeeModel {
     private final int MAX_SALE_ID = 10000;
 
     // Constructor
-    public EmployeeModel(int employee_id) {
-        logger = new Logger();
+    public EmployeeModel(int employee_id, Logger log) {
+        logger = log;
         closedSales = new HashMap<>();
         openSales = new HashMap<>();
         customers = new HashMap<>();
@@ -41,8 +41,8 @@ public class EmployeeModel {
             n = rand.nextInt(MAX_SALE_ID);
 
         // Create sale object
-        Sale newSale = new Sale(getCustomer(customer_id), n);
-        newSale.setEmployee(this);
+        Sale newSale = new Sale(this, getCustomer(customer_id), n);
+//        newSale.setEmployee(this);
 
         openSales.put(n, newSale);
         logger.acceptNewSale(newSale);

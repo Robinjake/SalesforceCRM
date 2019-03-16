@@ -21,7 +21,8 @@ public class Sale
     private boolean saleDecision;
 
     // Constructor
-    public Sale(CustomerModel cm, int sale_id) {
+    public Sale(EmployeeModel em, CustomerModel cm, int sale_id) {
+        employee = em;
         customer = cm;
         id = sale_id;
     }
