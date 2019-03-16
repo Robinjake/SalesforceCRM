@@ -1,25 +1,21 @@
-package test.java.logger;
+package test.java.employee;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class LoggerTest {
+public class EmployeeModelTest {
 
     @Before
     public void setUp() throws Exception {
     }
 
     @Test
-    public void acceptNewSale() {
+    public void offerNewSale() {
     }
 
     @Test
-    public void acceptClosedSale() {
-    }
-
-    @Test
-    public void doesSaleIdExist() {
+    public void closeSale() {
     }
 }
