@@ -64,8 +64,8 @@ public class EmployeeModel {
     
     public void createCust(int n) {
         
-        Logger log = new Logger();
-        CustomerModel cust = new CustomerModel(n, log);
+        
+        CustomerModel cust = new CustomerModel(n, logger);
         customers.put(n, cust);
     }
     
