@@ -31,6 +31,10 @@ public class EmployeeModel {
     public CustomerModel getCustomer(int customer_id) {
         return customers.get(customer_id);
     }
+    
+    public boolean doesCustExist(int id) {
+        return customers.containsKey(id);
+    }
 
     // Create a new sale with a unique id then offer it a specific customer
     public void offerNewSale(int customer_id) {
@@ -41,9 +45,13 @@ public class EmployeeModel {
             n = rand.nextInt(MAX_SALE_ID);
 
         // Create sale object
-        Sale newSale = new Sale(this, getCustomer(customer_id), n);
+        Sale newSale;
+        
+        
+        newSale = new Sale(this, getCustomer(customer_id), n);
+        
 //        newSale.setEmployee(this);
-
+        
         openSales.put(n, newSale);
         logger.acceptNewSale(newSale);
     }
@@ -54,10 +62,17 @@ public class EmployeeModel {
         closedSales.put(sale_id, closedSale);
     }
     
+    public void createCust(int n) {
+        
+        Logger log = new Logger();
+        CustomerModel cust = new CustomerModel(n, log);
+        customers.put(n, cust);
+    }
+    
     public void showClosedSales() {
-        closedSales.forEach((k,v) -> System.out.println("Customer ID: "+k+" Sales:"+v));
+        closedSales.forEach((k,v) -> System.out.println("Sale ID: "+k+" Customer:"+v.getCustomer()));
     }
     public void showOpenSales() {
-        openSales.forEach((k,v) -> System.out.println("Customer ID: "+k+" Sales:"+v));
+        openSales.forEach((k,v) -> System.out.println("Sale ID: "+k+" Customer:"+v.getCustomer().getID()));
     }
 }

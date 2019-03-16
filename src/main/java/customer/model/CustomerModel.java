@@ -39,4 +39,8 @@ public class CustomerModel {
         closedSales.put(closedSale.getId(), closedSale);
         logger.acceptClosedSale(closedSale.getId());
     }
+    
+    public int getID() {
+        return id;
+    }
 }
