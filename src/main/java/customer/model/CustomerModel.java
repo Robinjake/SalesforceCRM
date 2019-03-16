@@ -19,7 +19,7 @@ public class CustomerModel {
     int id;
 
     // Constructor
-    CustomerModel(int customer_id) {
+    public CustomerModel(int customer_id) {
         openSales = new ArrayList<>();
         closedSales = new HashMap<>();
         logger = new Logger();
