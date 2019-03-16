@@ -32,9 +32,10 @@ public class CustomerView {
             // View open sales
             if (intInput == 1) {
 
-                //TODO: Must list the sales yourself and print them
-                // customerView.ListOpenSales();
-
+                //Print list of sales
+                for(int sale : customerModel.openSales.keySet()){
+                    System.out.println(sale);
+                }
 
                 System.out.println("Please Choose a sale: ");
                 int index = scanner.nextInt();
