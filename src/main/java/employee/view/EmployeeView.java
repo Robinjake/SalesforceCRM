@@ -15,11 +15,11 @@ import main.java.employee.model.EmployeeModel;
 import main.java.logger.model.Logger;
 
 public class EmployeeView {
-    Logger log;
+    
     EmployeeModel _employee;
     Scanner input;
     EmployeeView(EmployeeModel _emp) {
-        log = new Logger();
+        
         _employee = _emp;
         input = new Scanner(System.in);
     }
