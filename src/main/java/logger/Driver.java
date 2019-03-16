@@ -4,73 +4,13 @@
 
 package main.java.logger;
 
-import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Driver {
     public static void main(String[] args) {
-        Logger logger = new Logger();
-        Scanner scanner = new Scanner(System.in);
-
-        // TODO: Have a way to log on and enter your employee id or create a new employee account
-        // Hard coded employee and customer
-        Employee employee = new Employee(1); // 1 represents employee id
-        int intInput = 0;
-        String strInput = "";
-
-
-        while (true) {
-            System.out.println("CRM Menu");
-            System.out.println("1. Quit");
-            System.out.println("2. Make a sale");
-            System.out.println("3. Check sale history");
-            System.out.print("Enter option (1-3): ");
-            intInput = scanner.nextInt();
-            System.out.println();
-
-            // Make a sale
-            if (intInput == 2) {
-                Customer customer;
-                Sale newSale;
-
-                System.out.println("1. New customer");
-                System.out.println("2. Existing customer");
-                System.out.print("Enter option (1-2): ");
-                intInput = scanner.nextInt();
-                System.out.println();
-
-                if (intInput == 1) {
-                    System.out.print("What is your customer's id: ");
-                    intInput = scanner.nextInt();
-                    employee.newCustomerAccount(intInput);
-                    customer = employee.getCustomerAccount(intInput);
-                    System.out.println();
-                }
-                else {
-                    System.out.print("Enter customer id: ");
-                    intInput = scanner.nextInt();
-                    customer = employee.getCustomerAccount(intInput);
-                    System.out.println();
-                }
-
-                System.out.print("What are you selling: ");
-                strInput = scanner.next();
-                System.out.println();
-
-                employee.createSale(strInput, customer);
-                System.out.println();
-            }
-
-            // Check employee sale history
-            else if (intInput == 3) {
-                employee.checkSaleHistory();
-                System.out.println();
-            }
-
-            else
-                return;
-
-            System.out.println("TRANSACTION COMPLETE");
-        }
+        String name = "Kyle";
+        Set<String> names = new HashSet<>();
     }
 }
 
