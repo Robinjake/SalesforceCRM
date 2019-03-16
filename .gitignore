@@ -4,4 +4,4 @@ nbproject/
 build.xml
 manifest.mf
 lib/
-.DS_Store
+**/.DS_Store
