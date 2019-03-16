@@ -53,4 +53,11 @@ public class EmployeeModel {
         Sale closedSale = openSales.remove(sale_id);
         closedSales.put(sale_id, closedSale);
     }
+    
+    public void showClosedSales() {
+        closedSales.forEach((k,v) -> System.out.println("Customer ID: "+k+" Sales:"+v));
+    }
+    public void showOpenSales() {
+        openSales.forEach((k,v) -> System.out.println("Customer ID: "+k+" Sales:"+v));
+    }
 }
