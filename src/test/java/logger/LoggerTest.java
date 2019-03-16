@@ -4,12 +4,9 @@
 
 package test.java.logger;
 
-import main.java.logger.Customer;
 import main.java.logger.Employee;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.io.ByteArrayInputStream;
 
 import static org.junit.Assert.*;
 
