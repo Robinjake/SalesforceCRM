@@ -16,8 +16,8 @@ import java.util.Map;
 public class Logger {
     // Record of a business's open(pending) and closed(finalized) sales
     // Integer represents the specific sale id, used for O(1) lookup
-    private Map<Integer, Sale> openSales;
-    private Map<Integer, Sale> closedSales;
+    public Map<Integer, Sale> openSales;
+    public Map<Integer, Sale> closedSales;
 
     public Logger() {
         openSales = new HashMap<>();
@@ -42,7 +42,7 @@ public class Logger {
     }
 
     public boolean doesSaleIdExist(int id) {
-        return openSales.containsKey(id) && closedSales.containsKey(id);
+        return openSales.containsKey(id) || closedSales.containsKey(id);
     }
 
 

@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class CustomerModel {
     // Member fields
-    public Map<Integer, Sale> openSales; //TODO: make this a map
+    public Map<Integer, Sale> openSales;
     public Map<Integer, Sale> closedSales;
     Logger logger;
     int id;
@@ -31,7 +31,6 @@ public class CustomerModel {
         openSales.put(sale.getId(), sale);
     }
 
-    // TODO: update this when openSales is changed to a map
     // Moves a sale from open to closed
     // Notify the logger that the sale has been closed
     public void closeSale(int sale_id, boolean decision) {
